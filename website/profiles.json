@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Alice Johnson",
+        "workingAt": "Tech Corp",
+        "currentPost": "Software Engineer",
+        "course": "Computer Science",
+        "image": "path_to_image/alice.png"
+    },
+    {
+        "id": 2,
+        "name": "Bob Smith",
+        "workingAt": "Finance Inc.",
+        "currentPost": "Financial Analyst",
+        "course": "Finance",
+        "image": "path_to_image/bob.png"
+    },
+    {
+        "id": 3,
+        "name": "Charlie Brown",
+        "workingAt": "Health Solutions",
+        "currentPost": "Data Scientist",
+        "course": "Statistics",
+        "image": "path_to_image/charlie.png"
+    }
+]

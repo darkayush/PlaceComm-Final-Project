@@ -1,0 +1,16 @@
+{
+    "pdfs": [
+        {
+            "name": "Sample PDF 1",
+            "url": "uploads/CGDC_Monthly_Report-August_2024.pdf"
+        },
+        {
+            "name": "Sample PDF 2",
+            "url": "uploads/sample2.pdf"
+        },
+        {
+            "name": "Sample PDF 3",
+            "url": "uploads/sample3.pdf"
+        }
+    ]
+}
