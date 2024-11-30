@@ -11,7 +11,7 @@
         <div class="left-section">
             <div class="logo-background">
                 <div>
-                    <img src="bmulogo.jpg" alt="BMU Logo" class="logo" style="height:80px; ">
+                    <img src="Assets/New_Logo.png" alt="BMU Logo" class="logo" style="height:80px; ">
                 </div>
             </div>
             <h1>PlaceComm</h1>
@@ -44,26 +44,25 @@
     </div>
 
     <script>
-        // Sample user data (in a real application, this would be stored in a database)
+        
         const users = {
             student: { email: 'student@bmu.edu.in', password: 'studentpassword' },
             company: { email: 'company@example.com', password: 'companypassword' }
         };
 
         document.getElementById('loginForm').addEventListener('submit', function (e) {
-            e.preventDefault(); // Prevent form submission
+            e.preventDefault(); 
 
             const userType = document.getElementById('userType').value;
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
 
-            // Validate email for students
+            
             if (userType === 'student' && !email.endsWith('@bmu.edu.in')) {
                 alert('Students must use a college email ID ending with @bmu.edu.in');
                 return;
             }
 
-            // Check if the user exists and the password is correct
             if (users[userType] && users[userType].email === email && users[userType].password === password) {
                 localStorage.setItem('user', JSON.stringify({ email, userType }));
                 alert(`Login successful as ${userType}`);

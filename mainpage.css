@@ -10,17 +10,18 @@
     font-weight: 10px;
     font-style: normal;
     background-color: rgb(230,230,230);
+    
   }
   
   .navbar {
-    height: 100px;
+    background-image: url(Assets/Career-Services.webp);
+    height:150px;
     display: flex;
     justify-content: space-between;
-    background-color: #2980b9; /* Blue header */
-    box-shadow: 3px 3px 3px black;
-    color: white; /* White text */
-    animation: slideDown 0.5s forwards;
-    position: fixed;
+    /* box-shadow: 3px 3px 3px black; */
+    color: rgb(255, 255, 255); 
+    /* animation: slideDown 0.5s forwards;   */
+    /* position: fixed; */
     top: 0;
     left: 0;
     width: 100%;
@@ -41,17 +42,19 @@
   }
   
   .logo img {
-    width: 40px;
-    height: 40px;
+    width: 330px;
+    height: 110px;
     margin-right: 10px;
   }
   
   .logo h1 {
-    font-size: 24px;
-    color: #333;
+    color: rgb(255, 255, 255);
+    font-size: 40px;  
+    
   }
   
-  .nav-links {
+  .nav-links{
+    /* color: #d9f3fb; */
     list-style: none;
     display: flex;
     align-items: center;
@@ -64,7 +67,7 @@
   .nav-links a {
     text-decoration: none;
     font-size: 16px;
-    color: #000000;
+    color: #e8e8e8;
     font-weight: bold;
   }
   
@@ -88,6 +91,7 @@
   }
   
   .text{
+    margin-top: 60px;
     margin-bottom: 300px;
   }
   
@@ -112,6 +116,7 @@
     align-items: flex-start;
     gap: 10rem;
     padding: 60px;
+    margin-bottom: 50px;
   }
   
   .image-container {
@@ -164,6 +169,91 @@
     font-weight: 500;
     line-height: 1.5;
   }
+
+  .journey-section {
+    background-color: #003a75;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .journey-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 40px;
+  }
+  
+  .highlight {
+    color: #ffcc00; /* Highlighted text color */
+  }
+  
+  .journey-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Adjusts for smaller screens */
+  }
+  
+  .card {
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white */
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    text-align: left;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .card h3 {
+    margin-top: 0;
+    font-size: 20px;
+    border-bottom: 2px solid white;
+    padding-bottom: 10px;
+  }
+  
+  .card ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 20px 0;
+    color: #cce0ff; /* Lighter text color for the list */
+  }
+  
+  .card ul li {
+    margin-bottom: 5px;
+  }
+  
+  .learn-more-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid white;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .learn-more-btn:hover {
+    background-color: white;
+    color: #003a75; /* Button text color on hover */
+  }
+  
+  .students {
+    background-color: #4476a6;
+  }
+  
+  .employers {
+    background-color: #37b6ff;
+  }
+  
+  .alumni {
+    background-color: #86b4d6;
+  }
+  
   
   .discover-section {
     margin-top: 50px;
@@ -290,7 +380,7 @@
   .stats img {
     border-radius: 20px;
     margin-bottom: 50px;
-    width:500px;
+    width:5000px;
   }
   
   .companies {

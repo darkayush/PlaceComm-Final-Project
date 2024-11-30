@@ -1,5 +1,5 @@
 body {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Amplitudes', sans-serif;
     background-color: #f4f4f4;
     display: flex;
     justify-content: center;
@@ -17,14 +17,13 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     height: 550px;
-   
 }
 
 .left-section {
     flex: 1;
     padding: 20px;
-    background-color: #003366; /* Primary color */
-    color: white;
+    background-color:   rgb(13,77,150);
+    color: rgb(7, 7, 7);
     border-radius: 10px 0 0 10px;
 }
 
