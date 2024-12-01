@@ -52,6 +52,17 @@ connectToDatabase();
             res.status(500).send('Error posting job'); // Send a 500 response
         }
     });
+    // Endpoint to fetch companies
+app.get('/api/companies', async (req, res) => {
+    try {
+        const companyCollection = client.db("test").collection("Companies"); // Replace with your collection name
+        const companies = await companyCollection.find().toArray();
+        res.json(companies);
+    } catch (error) {
+        console.error('Error fetching companies:', error);
+        res.status(500).send('Error fetching companies');
+    }
+});
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

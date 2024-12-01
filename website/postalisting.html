@@ -274,9 +274,9 @@
             <div id="post-job" class="form-container">
               <center>  <h3>Post a Job Listing</h3></center>
                 <form id="postJobForm">
-                    <label for="employee-select"></label>
-                    <select id="company" name="employee_id">
-                        <option value="" disabled selected>Select a Company</option>
+                    <label for="company"></label>
+                    <select id="company" name="companyId" required>
+                        <option value="" >Select a Company</option>
                         <!-- Employee options will be populated here dynamically -->
                     </select>
                     <input type="text" placeholder="Job Title" id="title" required>
@@ -287,7 +287,6 @@
                         <button type="submit" class="btn-submit">Post Job</button>
                     </div>
                 </form>
-                <p id="responseMessage"></p>
             </div>
      </div>
 </div>

@@ -1,3 +1,17 @@
+async function fetchCompanies() {
+    const response = await fetch('http://localhost:3001/api/companies');
+    const companies = await response.json();
+    const companySelect = document.getElementById('company');
+
+    companies.forEach(company => {
+        const option = document.createElement('option');
+        option.value = company.Name; // Use the company's ObjectId
+        option.textContent = company.Name; // Display the company's name
+        companySelect.appendChild(option);
+    });
+}
+
+
 document.getElementById('postJobForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     const jobData = {
@@ -23,3 +37,4 @@ document.getElementById('postJobForm').addEventListener('submit', async (e) => {
         alert('Error posting job.');
     }
 });
+fetchCompanies();
