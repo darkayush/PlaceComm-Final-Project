@@ -107,49 +107,39 @@
         }
 
         .listings {
-            height: 280px;
-            width: 452px;
-            display: flex;
-            flex-wrap: wrap;
-            margin-right: 15px;
-            margin-top: 20px;
-            margin-left: 20px;
-            border-radius: 30px;
-            border: 2px solid #34495e; /* Border matching the sidebar color */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            background-color: white; /* White background for listings */
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 0.5s forwards;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .listings:hover {
-    transform: scale(15%); /* Scale up the card */
+    height:280px; /* Adjust height to fit content */
+    width: 452px; /* Keep the width consistent */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    margin-right: 15px;
+    margin-top: 20px;
+    margin-left: 20px;
+    border-radius: 15px; /* Slightly rounded corners */
+    /* border: 2px solid #34495e; Border matching the sidebar color */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: white; /* White background for listings */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.listings:hover {
+    transform: scale(1.02); /* Slightly scale up on hover */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
 }
+
+.l2 {
+    padding: 15px; /* Add padding for better spacing */
+    color: #333; /* Darker text color for better readability */
+margin-left:20px ;}
       .space{
         height:250px;
       }
 
-        .l1 {
-            width: 200px;
-        }
-
-        .l2 {
-            width: 225px;
-            margin-left: 10px;
-            align-items: center;
-            font-size: 15px;
-            
-        }
-
         .m1 {
             display: flex;
             width:calc(100%-300px); /* Adjust width for sidebar */
-            height:90px;
-             margin-left: 100px; 
+            height:70px;
+             margin-left: 370px; 
             padding-top: 90px; 
-            justify-content:space-between;
         }
 
         .search {
@@ -300,21 +290,13 @@
                 </div>
             </div>
         </div>
-        <div>
-            <a href="explore.html" ><button class="dropbtn">Explore</button></a>
-        </div>
         <a href="profile.html">  <div><h3><img src="profile1.png" style="height:27px;"></h3></div></a>
     </div>
 </div>
     <div class="m1">
          <div class="space1" ></div>
          <p style="padding-top: 20px;font-size: 23px;padding-left: 20px;"><b> Home</b></p>
-         <div class="space"></div>
-         <div class="space"></div>
-         <div class="space"></div>
-   <div class="search"> <form action="/search" method="GET" id="searchButton" >
-        <input type="search"class="search-bar" placeholder="What are you looking for? " id="searchInput" >
-      </form></div>
+    
       </div>
       <div class="b1">
         <div class="sidemenu">
@@ -325,7 +307,6 @@
        <a href="chat.html">  <div class="comp"><h3><img src="chat.png" width="25px" height="25px">  Chat</h3></div></a>
        <a href="review.html"><div class="comp"><h3><img src="trophy-icon-2048x2048-qzkx1nrp.png" width="25px" height="25px">  Reviews</h3></div></a>  
        <div class="space"></div>
-       <div class="comp" style="width:120px; align-items:center; height:30px; "> Logout</div>
         </div>
     
     <div class="centre" id=jobListings>
@@ -334,63 +315,48 @@
 
 </div>
 <script>
-// Add search functionality to filter dynamically loaded job listings
-searchInput.addEventListener('input', function () {
-    const query = this.value.toLowerCase();
-
-    // Filter the jobData array based on the search query
-    const filteredJobs = jobData.filter(job => {
-        const jobTitle = job.title.toLowerCase();
-        const jobDetails = `${job.qualification} ${job.salary} ${job.experience}`.toLowerCase();
-
-        return jobTitle.includes(query) || jobDetails.includes(query);
-    });
-
-    // Re-render the job listings with the filtered data
-    renderJobListings(filteredJobs);
-});
-
- // Fetch the JSON data
- fetch('jobs.json')
-            .then(response => {
+ async function fetchJobs() {
+            try {
+                const response = await fetch('http://localhost:3001/api/post-jobs');
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
-                return response.json();
-            })
-            .then(data => {
-                renderJobListings(data);
-            })
-            .catch(error => {
-                console.error('There was a problem with the fetch operation:', error);
-            });
-
-        function renderJobListings(data) {
-            const jobListings = document.getElementById('jobListings');
-            jobListings.innerHTML = '';  // Clear previous listings
-
-            data.forEach(job => {
-                const jobListing = `
-                    <div class="listings">
-                        <div class="l1"><img src="${job.image}" width="200px" height="290px"></div>
-                        <div class="l2">
-                            <h2>${job.title}</h2>
-                            <p>${job.qualification}</p>
-                            <p>${job.salary}</p>
-                            <p>${job.experience}</p>
-                            <a href="${job.link}">
-                                <button style="border-radius: 60px; width:80px; height: 40px; background-color: darkblue;color: aliceblue; margin-top:20px;">Apply</button>
-                            </a>
-                        </div>
-                    </div>
-                `;
-
-                jobListings.innerHTML += jobListing;  // Append the job listing to the container
-            }); 
-        
+                const jobs = await response.json();
+                renderJobListings(jobs);
+            } catch (error) {
+                console.error('Error fetching jobs:', error);
+                document.getElementById('jobListings').innerHTML = 'Error fetching job listings.';
+            }
         }
-// Initial rendering of the job listings
-renderJobListings(jobData);
+
+        function renderJobListings(jobs) {
+    const jobListings = document.getElementById('jobListings');
+    jobListings.innerHTML = '';  // Clear previous listings
+
+    jobs.forEach(job => {
+        const jobListing = `
+            <div class="listings">
+                <div class="l2">
+                    <h2 style="font-size: 20px; margin: 0;">${job.title}</h2>
+                    <p style="margin: 5px 0;">Company: ${job.company}</p>
+                    <p style="margin: 5px 0;">Type: ${job.jobtype}</p>
+                    <p style="margin: 5px 0;">Salary offered : ${job.salary}</p>
+                    <p style="margin: 5px 0;">Experience Required: ${job.experience}</p>
+                   <p style="margin: 5px 0;">Qualification Required: ${job.qualification}</p>
+                   <p style="margin: 5px 0;">Description: ${job.description}</p>
+                   <a href="listinginfo.html?id=${job._id}">
+                        <button style="border-radius: 60px; width:80px; height: 40px; background-color: darkblue;color: aliceblue; margin-top:20px;">Apply</button>
+                    </a>
+                </div>
+            </div>
+        `;
+
+        jobListings.innerHTML += jobListing;  // Append the job listing to the container
+    }); 
+}
+        
+    
+        fetchJobs();
 
 window.addEventListener('resize', function() {
     const width = window.innerWidth;
@@ -402,17 +368,6 @@ window.addEventListener('resize', function() {
     }
 
 });
-document.getElementById('searchInput').addEventListener('input', function() {
-            const query = this.value.toLowerCase();
-            const filteredJobs = jobData.filter(job => {
-                return job.title.toLowerCase().includes(query) || 
-                       job.qualification.toLowerCase().includes(query) || 
-                       job.salary.toLowerCase().includes(query) || 
-                       job.experience.toLowerCase().includes(query);
-            });
-            renderJobListings(filteredJobs); // Render filtered job listings
-        });
-        window.onload = fetchJobData;
 
 </script>
 
