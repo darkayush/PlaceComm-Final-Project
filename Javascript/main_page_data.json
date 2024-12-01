@@ -1,0 +1,23 @@
+{
+    "teamLeads": [
+      {
+        "name": "Mr. Santanil Dasgupta",
+        "position": "Sr. Director, CGDC",
+        "email": "santanil.dasgupta@bmu.edu.in",
+        "image": "Santanil-Dasgupta-Pic.jpg"
+      },
+      {
+        "name": "Mr. Amit Kumar",
+        "position": "Executive, CGDC",
+        "email": "amit.kumar1@bmu.edu.in",
+        "image": "Amit01.jpg"
+      },
+      {
+        "name": "Mr. Siddiq Aazam",
+        "position": "Assistant Director, CGDC",
+        "email": "siddiq.aazam@bmu.edu.in",
+        "image": "azam.jpg"
+      }
+    ]
+  }
+  

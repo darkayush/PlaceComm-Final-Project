@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full-Screen Quadrant Layout</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+     * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Outfit', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #e9ecef; 
+}
+
+.header1 {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #2980b9; 
+    box-shadow: 3px 3px 3px black;
+    color: white; 
+    animation: slideDown 0.5s forwards;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header2 {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    grid-template-rows: repeat(2, 1fr);
+    height: calc(100vh - 200px); 
+    width: 100%;
+    gap: 20px; 
+   padding: 20px; 
+
+}
+
+.card {
+    margin-top: 10px;
+    width: 880px;
+    height: 390px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px; 
+    color: white;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    border-radius: 10px; 
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    padding: 20px; 
+}
+
+.card h3{
+    color: rgb(255, 255, 255);
+}
+ 
+
+.card:nth-child(1) {
+             
+        background: url(Assets/Job_Posting.jpg);
+        background-size: cover;
+        background-blend-mode: overlay;
+        background-color: rgba(0, 0, 0, 0.5);     
+
+        }
+
+        .card:nth-child(2) {
+        background: url(Assets/View_applicants.avif);
+        background-size: cover;
+        background-blend-mode: overlay;
+        background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .card:nth-child(3) {
+        background: url(Assets/Chats.png);
+        background-size: cover;
+        background-blend-mode: overlay;
+        background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .card:nth-child(4) {
+        background: url(Assets/Reviews.png);
+        background-size: cover;
+        background-blend-mode: overlay;
+        background-color: rgba(0, 0, 0, 0.5);
+
+        }
+
+
+.card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); 
+}
+
+.card-content {
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card img {
+    width: 40px; 
+    height: 40px;
+    opacity: .5;
+    /* margin-right: 15px; */
+}
+
+a {
+    text-decoration: none;
+}
+    </style>
+</head>
+
+<body>
+
+    <div class="header1">
+        <div class="header2">
+            <img src="../Assets/New_Logo.png" alt="Logo" class="logo">
+            <h1 style="padding-top: 30px;">Placecomm</h1>
+        </div>
+    </div>
+    <div class="card-container">
+        <a href="postalisting.html" class="card">
+            <div class="card-content">
+                <h3>Post A Listing</h3>
+            </div>
+        </a>
+
+        <a href=" Applicants.html" class="card">
+            <div class="card-content">
+                <h3>View Applicants</h3>
+            </div>
+        </a>
+
+        <a href="employerchat.html" class="card">
+            <div class="card-content">
+                <h3>Chat</h3>
+            </div>
+        </a>
+
+        <a href="employerreview.html" class="card">
+            <div class="card-content">
+                <h3>Post Reviews</h3>
+            </div>
+        </a>
+    </div>
+
+</body>
+</html>
