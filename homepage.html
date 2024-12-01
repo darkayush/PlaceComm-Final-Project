@@ -137,10 +137,9 @@ margin-left:20px ;}
         .m1 {
             display: flex;
             width:calc(100%-300px); /* Adjust width for sidebar */
-            height:90px;
-             margin-left: 100px; 
+            height:70px;
+             margin-left: 370px; 
             padding-top: 90px; 
-            justify-content:space-between;
         }
 
         .search {
@@ -291,21 +290,13 @@ margin-left:20px ;}
                 </div>
             </div>
         </div>
-        <div>
-            <a href="explore.html" ><button class="dropbtn">Explore</button></a>
-        </div>
         <a href="profile.html">  <div><h3><img src="profile1.png" style="height:27px;"></h3></div></a>
     </div>
 </div>
     <div class="m1">
          <div class="space1" ></div>
          <p style="padding-top: 20px;font-size: 23px;padding-left: 20px;"><b> Home</b></p>
-         <div class="space"></div>
-         <div class="space"></div>
-         <div class="space"></div>
-   <div class="search"> <form action="/search" method="GET" id="searchButton" >
-        <input type="search"class="search-bar" placeholder="What are you looking for? " id="searchInput" >
-      </form></div>
+    
       </div>
       <div class="b1">
         <div class="sidemenu">
@@ -316,7 +307,6 @@ margin-left:20px ;}
        <a href="chat.html">  <div class="comp"><h3><img src="chat.png" width="25px" height="25px">  Chat</h3></div></a>
        <a href="review.html"><div class="comp"><h3><img src="trophy-icon-2048x2048-qzkx1nrp.png" width="25px" height="25px">  Reviews</h3></div></a>  
        <div class="space"></div>
-       <div class="comp" style="width:120px; align-items:center; height:30px; "> Logout</div>
         </div>
     
     <div class="centre" id=jobListings>
@@ -325,23 +315,6 @@ margin-left:20px ;}
 
 </div>
 <script>
-// // Add search functionality to filter dynamically loaded job listings
-// searchInput.addEventListener('input', function () {
-//     const query = this.value.toLowerCase();
-
-//     // Filter the jobData array based on the search query
-//     const filteredJobs = jobData.filter(job => {
-//         const jobTitle = job.title.toLowerCase();
-//         const jobDetails = `${job.qualification} ${job.salary} ${job.experience}`.toLowerCase();
-
-//         return jobTitle.includes(query) || jobDetails.includes(query);
-//     });
-
-//     // Re-render the job listings with the filtered data
-//     renderJobListings(filteredJobs);
-// });
-
- // Replace the fetch call to use your API endpoint
  async function fetchJobs() {
             try {
                 const response = await fetch('http://localhost:3001/api/post-jobs');

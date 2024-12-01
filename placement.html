@@ -106,82 +106,21 @@
             }
         }
 
-        .listings {
-            height: 280px;
-            width: 452px;
-            display: flex;
-            flex-wrap: wrap;
-            margin-right: 15px;
-            margin-top: 20px;
-            margin-left: 20px;
-            border-radius: 30px;
-            border: 2px solid #34495e; /* Border matching the sidebar color */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            background-color: white; /* White background for listings */
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 0.5s forwards;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .listings:hover {
-    transform: scale(15%); /* Scale up the card */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
-}
+        
       .space{
         height:250px;
       }
 
-        .l1 {
-            width: 200px;
-        }
-
-        .l2 {
-            width: 225px;
-            margin-left: 10px;
-            align-items: center;
-            font-size: 15px;
-            
-        }
-
+      
         .m1 {
             display: flex;
             width:calc(100%-300px); /* Adjust width for sidebar */
             height:90px;
-             margin-left: 100px; 
+             margin-left: 370px; 
             padding-top: 90px; 
-            justify-content:space-between;
         }
 
-        .search {
-            height: 100px;
-            width: 500px;
-            display: flex;
-            padding-top: 25px;
-        }
-
-        .search-bar {
-            width: 400px;
-            height: 50px;
-            padding: 8px;
-            border-radius: 60px;
-            border: 1px solid #2980b9; /* Border matching the header */
-            background: url('https://cdn-icons-png.flaticon.com/512/54/54481.png') no-repeat right 10px center;
-            background-size: 20px;
-        }
-
-        .search-button {
-            padding: 8px 12px;
-            background-color: #2980b9; /* Button color */
-            color: white;
-            border: none;
-            border-radius: 40px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-
-        .search-button:hover {
-            background-color: #1abc9c;
-        }
+      
 
         .dropbtn {
             background-color: #2980b9; /* Button color */
@@ -370,21 +309,13 @@ iframe {
               </div>
           </div>
       </div>
-      <div>
-          <a href="explore.html" ><button class="dropbtn">Explore</button></a>
-      </div>
       <a href="profile.html">  <div><h3><img src="profile1.png" style="height:27px;"></h3></div></a>
   </div>
 </div>
   <div class="m1">
        <div class="space1" ></div>
        <p style="padding-top: 20px;font-size: 23px;padding-left: 20px;"><b> Placements</b></p>
-       <div class="space"></div>
-       <div class="space"></div>
-       <div class="space"></div>
- <div class="search"> <form action="/search" method="GET" id=searchForm >
-      <input type="search"class="search-bar" placeholder="What are you looking for? " id=searchInput >
-    </form></div>
+      
     </div>
     <div class="b1">
       <div class="sidemenu">
@@ -395,7 +326,6 @@ iframe {
      <a href="chat.html">  <div class="comp"><h3><img src="chat.png" width="25px" height="25px">  Chat</h3></div></a>
      <a href="review.html"><div class="comp"><h3><img src="trophy-icon-2048x2048-qzkx1nrp.png" width="25px" height="25px">  Reviews</h3></div></a>  
      <div class="space"></div>
-     <div class="comp" style="width:100px; align-items:center; height:30px; "> Logout</div>
       </div>
         <div class="centre">
           <h2> Monthly Placement Stats and Data</h2>
