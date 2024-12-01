@@ -12,7 +12,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Outfit';
-            background-color: #f4f4f4; /* Light gray background */
+            background-color: #f4f4f4; 
             scroll-behavior: smooth;
             height: 100%;
         }
@@ -32,10 +32,10 @@
             height: 100px;
             display: flex;
             justify-content: space-between;
-            background-color: #2980b9; /* Blue header */
+            background-color: #2980b9; 
             box-shadow: 3px 3px 3px black;
-            color: white; /* White text */
-            animation: slideDown 0.5s forwards;
+            color: white;
+            /* animation: slideDown 0.5s forwards; */
             position: fixed;
             top: 0;
             left: 0;
@@ -60,7 +60,7 @@
 
         .centre {
             width:100%; 
-            padding-top: 175px; /* Adjust for header height */
+            padding-top: 175px; 
             height: 100%;
             display: flex;
             flex-wrap: wrap;
@@ -91,7 +91,7 @@
      
 
         .dropbtn {
-            background-color: #2980b9; /* Button color */
+            background-color: #2980b9; 
             color: white;
             padding: 10px 16px;
             font-size: 18px;
@@ -99,7 +99,7 @@
             cursor: pointer;
             border-radius: 5px;
             margin-top: 15px;
-            margin-right: 10px; /* Add margin for spacing */
+            margin-right: 10px; 
         }
 
         .dropdown {
@@ -111,33 +111,32 @@
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: rgba(52, 73, 94, 0.9); /* Translucent background */
-            min-width: 300px; /* Increased width for dropdown */
+            background-color: rgba(52, 73, 94, 0.9); 
+            min-width: 300px; 
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             z-index: 1;
             border-radius: 5px;
-            padding: 10px; /* Padding for dropdown content */
-            /* display: flex; Flexbox for left and right content */
-            justify-content: space-between; /* Space between left and right */
+            padding: 10px; 
+            justify-content: space-between; 
         }
 
         .dropdown-content div {
-            width: 45%; /* Width for left and right sections */
+            width: 45%; 
         }
 
         .dropdown-content a {
-            color: white; /* White text */
+            color: white; 
             padding: 12px 16px;
             text-decoration: none;
             display: block;
         }
 
         .dropdown-content a:hover {
-            background-color: #1abc9c; /* Teal on hover */
+            background-color: #1abc9c; 
         }
 
         .dropdown:hover .dropdown-content {
-            display: flex; /* Show dropdown on hover */
+            display: flex; 
         }
 
         a {
@@ -155,22 +154,22 @@
             color: #2c3e50;
             margin-left: 150px;
             margin-right: 150px;
-            width: calc(100% - 300px); /* Dynamic width */
+            width: calc(100% - 300px); 
         }
 
         .left-block {
             width: 400px;
             padding: 20px;
-            border-right: 1px solid #ccc; /* Divider between left and right */
+            border-right: 1px solid #ccc; 
             overflow-y: auto;
-            height: 600px; /* Fixed height for scrolling */
-            background-color: #fff; /* White background */
+            height: 600px; 
+            background-color: #fff; 
             border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); 
         }
 
         .right-block {
-            width: calc(100% - 420px); /* Remaining space for the chat area */
+            width: calc(100% - 420px); 
             padding: 20px;
             height: 600px;
             background-color: #fff;
@@ -190,20 +189,20 @@
         }
 
         .conversation:hover {
-            background-color: #ecf0f1; /* Slightly darker gray */
-            border-color: #3498db; /* Light blue border on hover */
+            background-color: #ecf0f1; 
+            border-color: #3498db; 
         }
 
         .conversation.active {
-            background-color: #3498db; /* Light blue background */
+            background-color: #3498db; 
             color: white;
-            border-color: #2980b9; /* Darker blue border */
+            border-color: #2980b9; 
         }
 
         .chat-area {
             display: flex;
             flex-direction: column;
-            background-color: #f5f6fa; /* Lighter background for chat */
+            background-color: #f5f6fa; 
             padding: 20px;
             height: 90%;
             border-radius: 8px;
@@ -223,12 +222,12 @@
             padding: 10px;
             border-radius: 8px;
             margin: 5px 0;
-            background-color: #ecf0f1; /* Light gray for messages */
+            background-color: #ecf0f1; 
             max-width: 70%;
         }
 
         .message.sent {
-            background-color: #d1e7dd; /* Light green for sent messages */
+            background-color: #d1e7dd; 
             align-self: flex-end;
         }
 
@@ -261,7 +260,7 @@
         }
 
         .send-button:hover {
-            background-color: #2980b9; /* Darker blue on hover */
+            background-color: #2980b9; 
         }
     </style>
 </head>
@@ -270,7 +269,7 @@
     <div class="overall">
     <div class="header1">
         <div class="header2">
-            <img src="New_Logo.png" alt="Logo" class="logo">
+            <img src="Assets/New_Logo.png" alt="Logo" class="logo">
             <h1 style="padding-top: 10px;">Placecomm</h1>
      </div>
      <div class="header2">
@@ -341,13 +340,11 @@
                 <div class="conversation" onclick="selectConversation('User 1')">User 1</div>
                 <div class="conversation" onclick="selectConversation('User 2')">User 2</div>
                 <div class="conversation" onclick="selectConversation('User 3')">User 3</div>
-                <!-- Add more conversations as needed -->
             </div>
 
             <div class="right-block">
                 <div class="chat-area">
                     <div class="messages" id="messages">
-                        <!-- Chat messages will be displayed here -->
                     </div>
                     <div class="input-container">
                         <input type="text" id="messageInput" class="message-input" placeholder="Type your message here..." />
@@ -363,17 +360,13 @@
             const messageInput = document.getElementById('messageInput');
             const messagesContainer = document.getElementById('messages');
     
-            // Function to select a conversation
+           
             function selectConversation(user) {
-                // Clear previous messages
                 messagesContainer.innerHTML = '';
-                // Simulate loading messages for the selected user
                 loadMessages(user);
             }
     
-            // Function to load messages for a selected user
             function loadMessages(user) {
-                // For demonstration, we will simulate some messages
                 const sampleMessages = [
                     `${user}: Hello!`,
                     `${user}: How are you?`,
@@ -386,7 +379,7 @@
                     messageElement.textContent = msg;
                     messagesContainer.appendChild(messageElement);
                 });
-                messagesContainer.scrollTop = messagesContainer.scrollHeight; // Scroll to the bottom
+                messagesContainer.scrollTop = messagesContainer.scrollHeight; 
             }
     
             sendButton.addEventListener('click', () => {
@@ -396,12 +389,10 @@
                     messageElement.className = 'message sent';
                     messageElement.textContent = `You: ${message}`;
                     messagesContainer.appendChild(messageElement);
-                    messageInput.value = ''; // Clear the input field
-                    messagesContainer.scrollTop = messagesContainer.scrollHeight; // Scroll to the bottom
+                    messageInput.value = ''; 
+                    messagesContainer.scrollTop = messagesContainer.scrollHeight; 
                 }
             });
-    
-            // Optional: Allow sending message with Enter key
             messageInput.addEventListener('keypress', (event) => {
                 if (event.key === 'Enter') {
                     sendButton.click();
