@@ -17,9 +17,13 @@ document.getElementById('postJobForm').addEventListener('submit', async (e) => {
     const jobData = {
          company: document.getElementById('company').value,
          title : document.getElementById('title').value,
+         jobtype : document.getElementById('jobtype').value,
         description :document.getElementById('description').value,
          salary : document.getElementById('salary').value,
-        experience : document.getElementById('experience').value
+        experience : document.getElementById('experience').value,
+        qualification : document.getElementById('qualification').value,
+        details : document.getElementById('details').value
+
     };
 
     const response = await fetch('http://localhost:3001/api/post-jobs', {

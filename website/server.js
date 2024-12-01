@@ -27,9 +27,12 @@ app.post('/api/post-job', (req, res) => {
     const newJobListing = new JobListing({
         company,
         title,
+        jobtype,
         description,
         salary,
-        experience
+        experience,
+        qualification,
+        details
     });
 
     // Save the job listing to MongoDB

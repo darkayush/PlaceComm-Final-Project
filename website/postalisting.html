@@ -154,7 +154,7 @@
         }
 
         .form-container {
-            height: 67%;
+            height: 87%;
             width: 990px;
             margin-left: 50px;
             background-color: white;
@@ -170,14 +170,15 @@
         }
 
        select, input, textarea {
-            width: 90%;
-            height: 40px;
+            width: 96%;
+            height: 45px;
             padding: 10px;
-            margin: 10px 0;
+            margin: 14px 0;
             border-radius: 5px;
             border: 1px solid #ddd;
         
         }
+       
         .button-container {
             display: flex;
             justify-content: center;
@@ -280,9 +281,12 @@
                         <!-- Employee options will be populated here dynamically -->
                     </select>
                     <input type="text" placeholder="Job Title" id="title" required>
+                    <input type="text" style="height: 20px;" placeholder="Type  eg. Work from home,Full-Time etc" id="jobtype"required>
                     <textarea placeholder="Job Description" id="description" required></textarea>
-                    <input type="text" placeholder="Salary" id="salary"  required>
-                    <input type="text" placeholder="Experience Required" id="experience"required>
+                    <input type="number" style="height: 20px;"placeholder="Salary" id="salary"  required>
+                    <input type="text"style="height: 20px;" placeholder="Experience Required" id="experience"required>
+                    <input type="text" placeholder="Qualification Required" id="qualification"required>
+                    <input type="text" placeholder="Details" id="details"required>
                     <div class="button-container">
                         <button type="submit" class="btn-submit">Post Job</button>
                     </div>

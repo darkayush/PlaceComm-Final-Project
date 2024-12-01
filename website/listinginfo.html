@@ -3,219 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Job Listing Info</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-
     <style>
-   
-body, html {
-  margin: 0;
-  padding: 0;
-}
-    .overall{
-        width: 1900px;
-        height: 100%;
-        position: relative;
-        padding: 0;
-margin: 0;
-        /* background-color: rgba(102, 165, 154, 1); */
-        /* background-color:rgb(69, 151, 90); */
-          /* background-image: url(pexels-jedz-1413144.jpg); */
-          /* image: resolution 100%;; */
-        /* background-repeat: no-repeat; Prevents the image from repeating */
-             /* background-position: center;  */
-            /* background-size:cover;  */
-            
-        
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Outfit';
+            background-color: #f4f4f4;
         }
-        .b1{
-            width:100%;
-            height: 1000px;
-             /* background-color: burlywood;  */
-            display: flex;
-       
+        .container {
+            width: 80%;
+            margin: auto;
+            margin-top: 70px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
-        .sidemenu{
-            height: 650px;
-            width:320px;
-            /* background-color: rgba(43, 25, 143, 0.557); */
-    /* box-shadow: 5px 6px 3px rgb(16, 16, 16);  */
-             /* border-right: solid black;
-             border-width: 3px; */
+        h2 {
+            text-align: center;
         }
-        .comp{ width:250px;
-            display: flex;
-    flex-direction: column;
-     /* background-color: blueviolet;   */
-margin-left: 4px;
-padding-left: 20px;
-background-color: rgb(179, 164, 240);
-box-shadow: 2px 2px 1px black;
-border-radius: 10px;
-margin-top:30px;
-font-weight: lighter;
+        label {
+            display: block;
+            margin: 10px 0 5px;
         }
-        .spacing{
-            height: 50px;
+        input, textarea {
+            width: 96%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
-        .header1{
-            margin-top: 0;
-            height: 100px;
-            width: 1860px;
-            display: flex;
-            justify-content: space-between;
-background-color: rgb(87, 69, 192);
-box-shadow: 3px 3px 3px black;
+        button {
+            padding: 10px 20px;
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
-        .header2{
-            display: flex;
-        justify-content: space-between;
-margin: 10px;}
-.centre{
-    width:2500px;
-    height:650px;
-      /* background-color: red;   */
-    display: flex;
-    flex-wrap: wrap;
-
-}
-.listings{
-height: 250px;
-width:492px;
- /* background-color: pink;  */
-display: flex;
-flex-wrap: wrap;
-margin-right: 15px;
-margin-top: 20px;
-margin-left:20px;
-border-radius:30px;
-border-style: solid;
-border-width: 2px;
-border-color: black;
-box-shadow:5px 5px 5px rgb(56, 54, 54);
-/* background-color: rgba(138, 43, 226,0.4); */
-background-color: whitesmoke;
-}
-.l1{
-    width: 230px;
-    /* background-color: brown;  */
-    
-    border-right: solid black;
-    border-width: 2px;
-    
-}
-.l2{
-    width: 235px;
-    /* background-color:yellow;  */
-margin-left:10px;
-align-items: center;
-font-size: 18px
-}
-.m1{
-height: 100px;
-width:2000px;
- display: flex;
-/* background-color: rgba(43, 25, 143, 0.557); */
-}
-.space1{
-    height: 100px;
-    width: 270px;
-  /* box-shadow:  5px 6px 3px rgb(16, 16, 16);  */
-}
-.space{
-    height: 100px;
-    width: 360px;
- 
-}
-.search{
-    height: 100px;
-    width: 500px;
-  display: flex;
-    padding-top: 25px;
-}
-.search-bar {
-    width: 370px;
-    height: 50px;
-    padding: 8px;
-    border-radius: 60px;
-    border: 1px solid black;
-    background:url('https://cdn-icons-png.flaticon.com/512/54/54481.png') no-repeat right 10px center;
-    background-size: 20px;
-  }
-  
-  .search-button {
-    padding: 8px 12px;
-    background-color: rgb(226, 115, 18);
-    color: white;
-    border: none;
-    border-radius: 40px;
-    cursor: pointer;
-  }
-  .m2{
-    height:50px;
-    display: flex;
-  }
-.emptyc{
-    width:1330px;
-    height:700px;
-    border: solid black;
-    border-radius: 40px;
-    margin-left: 70px;
-    background-color: rgba(173, 187, 220, 1);
-    opacity: 0.4;
-    align-content: center;
-}
-a{
-    text-decoration: none;
-    color: black;
-
-  }
-  a :hover{
-    color:blueviolet;
-  }
-
+        button:hover {
+            background-color: #1abc9c;
+        }
     </style>
 </head>
+<body>
+    <div class="container">
+        <h2>Job Title: <span id="job-title"></span></h2>
+        <p><strong>Company:</strong> <span id="job-company"></span></p>
+        <p><strong>Salary:</strong> <span id="job-salary"></span></p>
+        <p><strong>Experience Required:</strong> <span id="job-experience"></span></p>
+        <p><strong>Details:</strong> <span id="job-details"></span></p>
 
-<body style="font-family: Outfit;">
-    <div class="overall">
-    <div class="header1">
-        <div class="header2">
-            <img src="customer-logo.png" alt="Logo" class="logo">
-            <h2 style="padding-top: 10px;">Placecomm</h2>
-     </div>
-      <div class="header2">
-        <div class="header2"><h3>Jobs</h3></div>
-        <div class="header2"><h3>Internships</h3></div>
-        <div class="header2"><h3>Companies</h3></div>
-        <div class="header2"><h3>Explore</h3></div>
-      <a href="profile.html">  <div class="header2"><h3><img src="profile-icon-512x512-w0uaq4yr.png" style="height:20px;"></h3></div></a>
+        <h3>Apply for this Job</h3>
+        <form id="application-form">
+            <label for="applicant-name">Name:</label>
+            <input type="text" id="applicant-name" required>
+            <label for="applicant-email">Email:</label>
+            <input type="email" id="applicant-email" required>
+            <label for="applicant-resume">Upload Resume:</label>
+            <input type="file" id="applicant-resume" required>
+            <label for="applicant-cover-letter">Cover Letter:</label>
+            <textarea id="applicant-cover-letter" rows="4" required></textarea>
+            <button type="submit">Submit Application</button>
+        </form>
     </div>
-    </div>
-    <div class="m1">
-         <div class="space1" ></div>
 
-         <p style="padding-top: 20px;font-size: 23px;padding-left: 20px;">  <b>Home</b></p>
-         <div class="space"></div>
-         <div class="space"></div>
-         <div class="space"></div>
-   <div class="search"> <form action="/search" method="GET" >
-        <input type="search"class="search-bar" placeholder="What are you looking for? " style="color: antiquewhite;">
-        <!-- <button type="submit" class="search-button">Search</button>  -->
-      </form></div>
-      </div>
-      <div class="b1">
-        <div class="sidemenu">
-            <div class="spacing"></div>
-        <a href="homepage.html"> <div class="comp"><h3><img src="1946488.png" width="20px" height="20px">  Home</h3></div></a>
-      <a href="placement.html">   <div class="comp"><h3><img src="placement.png" width="25px" height="25px">  Placement</h3></div></a>
-        <a href="connectpage.html"><div class="comp"><h3><img src="connect.png" width="25px" height="25px">  Contact</h3></div></a> 
-       <a href="chat.html">  <div class="comp"><h3><img src="chat.png" width="25px" height="25px">  Chat</h3></div></a>
-       <a href="review.html"><div class="comp"><h3><img src="trophy-icon-2048x2048-qzkx1nrp.png" width="25px" height="25px">  Reviews</h3></div></a>  
-        </div>
+    <script>
+        // Fetch job details from the server
+        const jobId = new URLSearchParams(window.location.search).get('id'); // Get job ID from URL
+        fetch(`http://localhost:3001/api/post-jobs/${jobId}`)
+            .then(response => response.json())
+            .then(job => {
+                document.getElementById('job-title').innerText = job.title;
+                document.getElementById('job-company').innerText = job.company;
+                document.getElementById('job-salary').innerText = job.salary;
+                document.getElementById('job-experience').innerText = job.experience;
+                document.getElementById('job-details').innerText = job.description;
 
-<div class="emptyc"> <Center><h2>Find information about the listing here</h2></Center></div>
+            });
 
-</div>
-
-</div>
+        // Handle form submission
+        document.getElementById('application-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            fetch('http://localhost:3001/api/apply', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Application submitted successfully!');
+                    window.location.href = 'homepage.html'; // Redirect to homepage
+                } else {
+                    alert('Error submitting application.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

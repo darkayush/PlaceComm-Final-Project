@@ -63,7 +63,7 @@ app.get('/api/companies', async (req, res) => {
         res.status(500).send('Error fetching companies');
     }
 });
-// Start the server
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
