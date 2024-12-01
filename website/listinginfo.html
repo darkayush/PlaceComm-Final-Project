@@ -50,10 +50,12 @@
 </head>
 <body>
     <div class="container">
-        <h2>Job Title: <span id="job-title"></span></h2>
+        <h2>" "<span id="job-title"></span></h2>
         <p><strong>Company:</strong> <span id="job-company"></span></p>
+        <p><strong>Type:</strong> <span id="job-type"></span></p>
         <p><strong>Salary:</strong> <span id="job-salary"></span></p>
         <p><strong>Experience Required:</strong> <span id="job-experience"></span></p>
+        <p><strong>Qualification Requirement:</strong> <span id="job-qualification"></span></p>
         <p><strong>Details:</strong> <span id="job-details"></span></p>
 
         <h3>Apply for this Job</h3>
@@ -78,9 +80,11 @@
             .then(job => {
                 document.getElementById('job-title').innerText = job.title;
                 document.getElementById('job-company').innerText = job.company;
+                document.getElementById('job-type').innerText = job.jobtype;
                 document.getElementById('job-salary').innerText = job.salary;
                 document.getElementById('job-experience').innerText = job.experience;
-                document.getElementById('job-details').innerText = job.description;
+                document.getElementById('job-qualification').innerText = job.qualification;
+                document.getElementById('job-details').innerText = job.details;
 
             });
 
