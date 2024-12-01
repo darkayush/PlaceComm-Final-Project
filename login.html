@@ -25,7 +25,7 @@
                 <h3>Welcome! Please login to continue.</h3>
                 <form id="loginForm">
                     <label for="userType">User  Type</label>
-                    <select id="userType" name="userType" required>
+                    <select id="type" name="userType" required>
                         <option value="student">Student</option>
                         <option value="company">Company</option>
                     </select>
@@ -45,37 +45,69 @@
 
     <script>
         
-        const users = {
-            student: { email: 'student@bmu.edu.in', password: 'studentpassword' },
-            company: { email: 'company@example.com', password: 'companypassword' }
-        };
+        // const users = {
+        //     student: { email: 'student@bmu.edu.in', password: 'studentpassword' },
+        //     company: { email: 'company@example.com', password: 'companypassword' }
+        // };
 
-        document.getElementById('loginForm').addEventListener('submit', function (e) {
-            e.preventDefault(); 
+        // document.getElementById('loginForm').addEventListener('submit', function (e) {
+        //     e.preventDefault(); 
 
-            const userType = document.getElementById('userType').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+        //     const userType = document.getElementById('userType').value;
+        //     const email = document.getElementById('email').value;
+        //     const password = document.getElementById('password').value;
 
             
-            if (userType === 'student' && !email.endsWith('@bmu.edu.in')) {
-                alert('Students must use a college email ID ending with @bmu.edu.in');
-                return;
-            }
+        //     if (userType === 'student' && !email.endsWith('@bmu.edu.in')) {
+        //         alert('Students must use a college email ID ending with @bmu.edu.in');
+        //         return;
+        //     }
 
-            if (users[userType] && users[userType].email === email && users[userType].password === password) {
-                localStorage.setItem('user', JSON.stringify({ email, userType }));
-                alert(`Login successful as ${userType}`);
-                // Redirect based on user type
-                if (userType === 'student') {
-                    window.location.href = 'homepage.html'; // Redirect to student dashboard
-                } else {
-                    window.location.href = './website/companyhomepage.html'; // Redirect to company dashboard
-                }
-            } else {
-                alert('Invalid credentials');
-            }
+        //     if (users[userType] && users[userType].email === email && users[userType].password === password) {
+        //         localStorage.setItem('user', JSON.stringify({ email, userType }));
+        //         alert(`Login successful as ${userType}`);
+        //         // Redirect based on user type
+        //         if (userType === 'student') {
+        //             window.location.href = 'homepage.html'; // Redirect to student dashboard
+        //         } else {
+        //             window.location.href = './website/companyhomepage.html'; // Redirect to company dashboard
+        //         }
+        //     } else {
+        //         alert('Invalid credentials');
+        //     }
+        // });
+        document.getElementById('loginForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
+    const type = document.getElementById('type').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    try {
+        // Send POST request to server
+        const response = await fetch('http://localhost:3001/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ type, email, password }),
         });
+
+        // Check if response is OK
+        if (!response.ok) {
+            const errorMessage = await response.text(); // Get the error message
+            console.error('Server Error:', errorMessage);
+            alert('Server Error: ' + errorMessage);
+            return;
+        }
+
+        const result = await response.json();
+        alert(result.message); // Show "Login successful" or "Invalid credentials"
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error occurred while logging in');
+    }
+});
+
     </script>
 </body>
 </html>
