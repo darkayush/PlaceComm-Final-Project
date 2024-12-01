@@ -334,42 +334,42 @@
 
 </div>
 <script>
-// Add search functionality to filter dynamically loaded job listings
-searchInput.addEventListener('input', function () {
-    const query = this.value.toLowerCase();
+// // Add search functionality to filter dynamically loaded job listings
+// searchInput.addEventListener('input', function () {
+//     const query = this.value.toLowerCase();
 
-    // Filter the jobData array based on the search query
-    const filteredJobs = jobData.filter(job => {
-        const jobTitle = job.title.toLowerCase();
-        const jobDetails = `${job.qualification} ${job.salary} ${job.experience}`.toLowerCase();
+//     // Filter the jobData array based on the search query
+//     const filteredJobs = jobData.filter(job => {
+//         const jobTitle = job.title.toLowerCase();
+//         const jobDetails = `${job.qualification} ${job.salary} ${job.experience}`.toLowerCase();
 
-        return jobTitle.includes(query) || jobDetails.includes(query);
-    });
+//         return jobTitle.includes(query) || jobDetails.includes(query);
+//     });
 
-    // Re-render the job listings with the filtered data
-    renderJobListings(filteredJobs);
-});
+//     // Re-render the job listings with the filtered data
+//     renderJobListings(filteredJobs);
+// });
 
- // Fetch the JSON data
- fetch('jobs.json')
-            .then(response => {
+ // Replace the fetch call to use your API endpoint
+ async function fetchJobs() {
+            try {
+                const response = await fetch('http://localhost:3001/api/post-jobs');
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
-                return response.json();
-            })
-            .then(data => {
-                renderJobListings(data);
-            })
-            .catch(error => {
-                console.error('There was a problem with the fetch operation:', error);
-            });
+                const jobs = await response.json();
+                renderJobListings(jobs);
+            } catch (error) {
+                console.error('Error fetching jobs:', error);
+                document.getElementById('jobListings').innerHTML = 'Error fetching job listings.';
+            }
+        }
 
-        function renderJobListings(data) {
+        function renderJobListings(jobs) {
             const jobListings = document.getElementById('jobListings');
             jobListings.innerHTML = '';  // Clear previous listings
 
-            data.forEach(job => {
+            jobs.forEach(job => {
                 const jobListing = `
                     <div class="listings">
                         <div class="l1"><img src="${job.image}" width="200px" height="290px"></div>
@@ -389,8 +389,7 @@ searchInput.addEventListener('input', function () {
             }); 
         
         }
-// Initial rendering of the job listings
-renderJobListings(jobData);
+        fetchJobs();
 
 window.addEventListener('resize', function() {
     const width = window.innerWidth;
@@ -402,17 +401,7 @@ window.addEventListener('resize', function() {
     }
 
 });
-document.getElementById('searchInput').addEventListener('input', function() {
-            const query = this.value.toLowerCase();
-            const filteredJobs = jobData.filter(job => {
-                return job.title.toLowerCase().includes(query) || 
-                       job.qualification.toLowerCase().includes(query) || 
-                       job.salary.toLowerCase().includes(query) || 
-                       job.experience.toLowerCase().includes(query);
-            });
-            renderJobListings(filteredJobs); // Render filtered job listings
-        });
-        window.onload = fetchJobData;
+
 
 </script>
 
