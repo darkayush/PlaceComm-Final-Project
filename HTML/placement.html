@@ -353,12 +353,12 @@ iframe {
       // Fetch the list of PDFs from the JSON file
       async function fetchPDFs() {
           try {
-              const response = await fetch('pdfs.json'); // Fetch the JSON file
+              const response = await fetch('Javascriptpdfs.json'); // Fetch the JSON file
               const data = await response.json();
 
               data.pdfs.forEach(pdf => {
                   const link = document.createElement('a');
-                  link.href = '#'; // Prevent default link behavior
+                  link.href = ''; // Prevent default link behavior
                   link.textContent = pdf.name;
                   link.onclick = (event) => {
                       event.preventDefault();
