@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Profile = require('../model/profile.js');
+const Profile = require('../models/profile');
 
 // Route to save the profile data
 router.post('/save', async (req, res) => {

@@ -445,34 +445,42 @@
   </div>
   <script>
     function saveProfile() {
-      const profileData = {
-        name: document.getElementById('name').value,
-        gender: document.getElementById('gender').value,
-        email: document.getElementById('Email').value,
-        phone: document.getElementById('Phone').value,
-        address: document.getElementById('Address').value,
-        qualification: document.getElementById('qualification').value,
-        specialization: document.getElementById('specialization').value,
-        projects: document.getElementById('Projects/Internships').value,
-        workExperience: document.getElementById('Work-exp').value
-      };
+        const name = document.getElementById('name').value;
+        const gender = document.getElementById('gender').value;
+        const email = document.getElementById('Email').value;
+        const phone = document.getElementById('Phone').value;
+        const address = document.getElementById('Address').value;
+        const profilePic = document.getElementById('profilePic').src;
 
-      // Send data to server using Fetch API
-      fetch('/profile/save', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(profileData)
-      })
-      .then(response => response.json())
-      .then(data => {
-        alert('Profile saved successfully');
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
+        const profileData = {
+            name,
+            gender,
+            email,
+            phone,
+            address,
+            profilePic
+        };
+
+        fetch('http://localhost:3001/profile/save', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(profileData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Profile saved successfully!');
+            } else {
+                alert('Failed to save profile');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error saving profile');
+        });
     }
-  </script>
 </script>
+
 </body>
