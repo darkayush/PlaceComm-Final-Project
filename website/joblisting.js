@@ -1,4 +1,5 @@
-const mongoose = require('mongoose');
+
+const mongoose = require ('mongoose');
 
 // Define the schema for job listings
 const jobListingSchema = new mongoose.Schema({

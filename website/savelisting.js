@@ -41,4 +41,5 @@ document.getElementById('postJobForm').addEventListener('submit', async (e) => {
         alert('Error posting job.');
     }
 });
+
 fetchCompanies();
