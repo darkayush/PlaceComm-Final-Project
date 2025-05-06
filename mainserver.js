@@ -5,7 +5,7 @@ const { connectToDatabase } = require('./config/db'); // Import the MongoDB conn
 // Import routes
 const jobRoutes = require('./routes/jobRoutes');
 const companyRoutes = require('./routes/companyRoutes');
-// const profileRoutes = require('./routes/profileRoutes');
+
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -17,7 +17,7 @@ app.use(express.json());
 // Use the routes
 app.use('/api', jobRoutes);  // Job-related routes
 app.use('/api', companyRoutes);  // Company-related routes
-// app.use('/profile', profileRoutes);
+
 
 // Start the server after connecting to the database
 connectToDatabase().then(() => {
